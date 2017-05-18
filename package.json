@@ -1,0 +1,46 @@
+{
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp dev",
+    "product": "gulp build",
+    "build": "gulp build",
+    "eslint": "eslint ./src/**/*.js"
+  },
+  "pre-commit": [
+    "eslint"
+  ],
+  "author": "ivy",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-loader": "^6.2.9",
+    "css-loader": "~0.23.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-less": "^3.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
+    "gulp-rev-collector": "^1.0.5",
+    "gulp-util": "^3.0.7",
+    "json-loader": "~0.5.4",
+    "jsx-loader": "~0.13.2",
+    "less-loader": "~2.2.3",
+    "style-loader": "~0.13.1",
+    "url-loader": "~0.5.7",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1",
+    "gulp-eslint": "^3.0.1"
+  },
+  "dependencies": {
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "react-router": "^2.0.1"
+  }
+}

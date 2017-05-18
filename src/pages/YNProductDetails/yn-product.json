@@ -1,0 +1,39 @@
+[{
+	"src": "./images/pro1.jpg",
+	"classify": "celling",
+	"description": "1",
+	"id": "00010",
+	"name": "sdfas",
+	"banner": ["./images/p1.png", "./images/p2.jpg", "./images/p3.jpg"],
+	"materialImage": "./images/p1.png",
+	"materialText": "dafsdfasf",
+	"size": [{
+		"sizeImage": "./images/p1.png",
+		"sizeText": "text1"
+	}, {
+		"sizeImage": "./images/p1.png",
+		"sizeText": "text2"
+	}],
+	"part": "./images/p1.png",
+	"scene": ["./images/p1.png", "./images/p2.jpg", "./images/p3.jpg"]
+
+}, {
+	"src": "./images/pro1.jpg",
+	"classify": "celling",
+	"description": "2",
+	"id": "00110",
+	"name": "现代简约设计师客厅吊灯led创意个性萤火虫树枝吊灯",
+	"banner": ["./images/00110-b1.png", "./images/00110-b2.png", "./images/00110-b3.png"],
+	"materialImage": "./images/p1.png",
+	"materialText": "dafsdfasf",
+	"size": [{
+		"sizeImage": "./images/p1.png",
+		"sizeText": "text1"
+	}, {
+		"sizeImage": "./images/p1.png",
+		"sizeText": "text2"
+	}],
+	"part": "./images/p1.png",
+	"scene": ["./images/p1.png", "./images/p2.jpg", "./images/p3.jpg"]
+
+}]
