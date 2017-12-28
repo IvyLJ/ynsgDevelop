@@ -1,0 +1,42 @@
+@import '../../static/mixins/global.less';
+.ysg-menu-page {
+    .px2rem(padding;
+    10px);
+    .ysg-menu-wrapper {
+        .menu-page-title {
+            .px2rem(height;
+            40px);
+            .px2rem(line-height;
+            40px);
+            .title-label,
+            .title-op {
+                display: inline-block;
+                float: left;
+                width: 50%;
+                .px2rem(padding;
+                0;
+                20px);
+                .fontsize(14px);
+            }
+            .title-op {
+                text-align: right;
+                .fontsize(12px);
+            }
+        }
+        .menu-page-gallery {
+            height: auto;
+            overflow: hidden;
+            &.client-menu {
+                .px2rem(height;
+                220px);
+            }
+        }
+    }
+}
+@media only screen and ( min-device-width: 900px){  
+   .ysg-menu-page {
+     .px2rem(padding;
+    50px);
+     
+   }
+}  

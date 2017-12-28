@@ -1,67 +1,120 @@
-var webpack = require('webpack');
-// var commonPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+let path = require("path");
+let webpack = require("webpack");
+let HtmlWebpackPlugin = require("html-webpack-plugin");
+let OpenBrowserPlugin = require("open-browser-webpack-plugin");
 
 module.exports = {
-	//插件项
-	//plugins: [CommonsChunkPlugin],
-	//页面入口文件配置
 	entry: {
-		index: './src/index.js',
-		//vendor: ['react']
+		app: [
+			"react-hot-loader/patch",
+			"webpack-dev-server/client?http://0.0.0.0:3030",
+			"webpack/hot/only-dev-server",
+			"babel-polyfill",
+			"./src/index"
+		]
 	},
-	//入口文件输出配置
 	output: {
-		path: './dev/',
-		filename: '[name].js'
+		path: path.join(__dirname, 'dist'),
+		publicPath: "/",
+		filename: "[name].[hash].js"
+	},
+	devServer: {
+		hot: true,
+		contentBase: path.resolve(__dirname, "dist"),
+		port: 3030,
+		host: "0.0.0.0",
+		publicPath: "/",
+		historyApiFallback: true,
+		disableHostCheck: true
+	},
+	devtool: 'inline-source-map',
+	resolve: {
+		modules: [
+			path.resolve(__dirname, './node_modules'),
+			path.resolve(__dirname, './')
+		],
+		alias: {
+			ysgreact: path.resolve('./src/components/index.js')
+		}
 	},
 	module: {
-		//加载器配置
-		loaders: [
-			//.css文件使用style-loader和css-loader来处理
-			// {
-			// 	test: /\.css$/,
-			// 	loader: 'style-loader!css-loader'
-			// },
-			//.js文件使用jsx-loader来处理
-			{
-				test: /\.(js|jsx)$/,
-				exclude: /(node_modules)/,
-				loader: 'babel?presets[]=react' // react jsx编译，可以使用es6
-			},
-			//图片文件使用 url-loader 来处理，小于8kb的直接转为base64
-			{
-				test: /\.(png|jpg)$/,
-				loader: 'url-loader?limit=8192'
+		rules: [{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: "babel-loader",
+			options: {
+				presets: [
+					["es2015", {
+						"modules": false
+					}],
+					"stage-0",
+					"react"
+				],
+				plugins: [
+					"transform-async-to-generator",
+					"transform-decorators-legacy", ["import", {
+						libraryName: "antd",
+						style: true
+					}]
+				]
 			}
-		]
-
+		}, {
+			test: /\.css$/,
+			use: [{
+				loader: "style-loader"
+			}, {
+				loader: "css-loader"
+			}]
+		}, {
+			test: /\.less$/,
+			use: [{
+				loader: "style-loader"
+			}, {
+				loader: "css-loader"
+			}, {
+				loader: "less-loader"
+			}]
+		}, {
+			test: /\.(jpe?g|png|gif|svg)$/i,
+			use: [{
+				loader: "file-loader",
+				options: {
+					name: "[hash].[ext]",
+					hash: "sha512",
+					digest: "hex",
+					outputPath: "assets/images/"
+				}
+			}]
+		}, {
+			test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			use: [{
+				loader: "url-loader",
+				options: {
+					limit: 10000,
+					mimetype: "application/font-woff",
+					outputPath: "assets/font/"
+				}
+			}]
+		}, {
+			test: /\.(ttf|eot)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			use: [{
+				loader: "file-loader",
+				options: {
+					outputPath: "assets/font/"
+				}
+			}]
+		}]
 	},
-	//其他解决方案配置
-	resolve: {
-		//查找module的话从这里开始查找
-		root: '/Users/ivy/fxk/ynsg/src', //绝对路径
-		//自动扩展文件后缀名，意味着require模块可以省略不写后缀名
-		extensions: ['', '.js', '.json', '.scss', '.jsx'],
-		//模块别名定义，方便后续直接引用别名，无须多写长长的地址
-		alias: {
-			'react': "libs/react/react.js",
-			'react-dom': "libs/react/react-dom.js",
-			"react-router": "libs/react/react-router.js",
-			"react-addons": "libs/react/react-with-addons.js",
-			"jquery": "libs/jquery-1.11.3.min.js"
-		}
-	}
-	// plugins: [
-	// 	new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.js')
-	// 	new webpack.optimize.UglifyJsPlugin({
-	// 		minimize: true,
-	// 		compress: {
-	// 			warnings: false,
-	// 			drop_console: true
-	// 		},
-	// 		output: {
-	// 			comments: false
-	// 		}
-	// 	})
-	// ]
-};
+	plugins: [
+		new OpenBrowserPlugin({
+			url: 'http://localhost:3030/'
+		}),
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new HtmlWebpackPlugin({
+			hash: false,
+			template: "./index.hbs"
+		}),
+
+	]
+}

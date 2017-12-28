@@ -1,0 +1,19 @@
+@rem: 10; // 1rem代表的实际10px，rem基准px，
+.px2rem(@attr; @px) {
+ @{attr}: @px;
+    [data-dpr="2"] & {
+         @{attr}: unit(@px / @rem, rem)
+    }
+    [data-dpr="3"] & {
+          @{attr}: unit(@px/ @rem, rem)
+    }
+}
+.px2rem(@attr; @px1; @px2) when (ispixel(@px1)) and (ispixel(@px2)) {
+  @{attr}: @px1 @px2;
+  [data-dpr="2"] & {
+         @{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem);
+    }
+    [data-dpr="3"] & {
+           @{attr}: unit(@px1 / @rem, rem) unit(@px2 / @rem, rem);
+    }
+}

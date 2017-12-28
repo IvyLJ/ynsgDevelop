@@ -1,0 +1,62 @@
+@import '../../static/mixins/global.less';
+.ysg-index{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	background: #fff;
+	.ysg-index-header{	
+		top:0;
+		left: 0;
+		.px2rem(height;60px);
+		.px2rem(line-height;60px);
+		width: 100%;
+		text-align: center;
+		.ysg-index-logo{
+			text-align: center;
+			img{
+				width: 140px;
+				height: auto;
+			}
+		}
+	}
+	.ysg-index-container{
+		height:100%;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		.ysg-btn{
+			display: block;	
+			width: 100%;
+			height: 100%;	
+		}
+	}
+	.ysg-footer{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			.px2rem(height;20px);
+			.px2rem(line-height;20px);
+			width: 100%;
+			text-align: center;
+			background: #fff;
+			color: #333;
+			.ysg-footer-wrapper{
+				.px2rem(width;400px);
+				height: 100%;
+				margin:0 auto;
+				.px2rem(line-height;20px);
+				text-align: center;
+				.fontsize(12px);
+
+
+			}
+			
+			.ba-img{
+				.px2rem(width;14px);
+				.px2rem(margin-top;12px);
+				.px2rem(margin-right;5px);
+				height: auto;
+				
+			}
+		}
+}

@@ -1,0 +1,19 @@
+@import '../../static/mixins/global.less';
+.ysg-header{
+	width: 100%;
+	position: fixed;
+	top:0;
+	left: 0;
+	.px2rem(height;48px);
+	.px2rem(line-height;48px);
+	text-align: center;
+	background: #fff;
+	z-index:999;
+	box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+	.fontsize(16px);
+	&.web{
+		text-align: left;
+		padding-left: 50px;
+	}
+
+}

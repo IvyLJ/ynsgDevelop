@@ -1,46 +1,53 @@
 {
-  "main": "gulpfile.js",
-  "scripts": {
-    "dev": "gulp dev",
-    "product": "gulp build",
-    "build": "gulp build",
-    "eslint": "eslint ./src/**/*.js"
-  },
-  "pre-commit": [
-    "eslint"
-  ],
-  "author": "ivy",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-loader": "^6.2.9",
-    "css-loader": "~0.23.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-babel": "^6.1.2",
-    "gulp-concat": "^2.6.1",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-less": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rev": "^7.1.2",
-    "gulp-rev-collector": "^1.0.5",
-    "gulp-util": "^3.0.7",
-    "json-loader": "~0.5.4",
-    "jsx-loader": "~0.13.2",
-    "less-loader": "~2.2.3",
-    "style-loader": "~0.13.1",
-    "url-loader": "~0.5.7",
-    "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1",
-    "gulp-imagemin": "^3.1.1",
-    "gulp-uglify": "^2.0.0",
-    "pump": "^1.0.1",
-    "gulp-eslint": "^3.0.1"
-  },
-  "dependencies": {
-    "babel-preset-react": "^6.16.0",
-    "babelify": "^7.3.0",
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1",
-    "react-router": "^2.0.1"
-  }
+	"name": "yishiguang",
+	"version": "1.0.0",
+	"description": "yishiguang light website",
+	"main": "webpack.config.js",
+	"scripts": {
+		"start": "webpack-dev-server --config ./webpack.config.js "
+	},
+	"keywords": [
+		"light",
+		"yishiguang"
+	],
+	"author": "Ivy",
+	"license": "ISC",
+	"dependencies": {
+		"classnames": "^2.2.5",
+		"font-awesome": "^4.7.0",
+		"react": "^15.6.1",
+		"react-dom": "^15.6.1",
+		"react-router-dom": "^4.2.0",
+		"axios": "^0.15.3",
+		"react-iscroll": "^2.0.3",
+		"iscroll": "^5.1.3"
+	},
+	"devDependencies": {
+		"babel-cli": "^6.14.0",
+		"babel-core": "^6.23.1",
+		"babel-loader": "^6.2.2",
+		"babel-plugin-import": "^1.2.1",
+		"babel-plugin-transform-async-to-generator": "^6.16.0",
+		"babel-plugin-transform-decorators-legacy": "^1.3.4",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
+		"babel-polyfill": "^6.23.0",
+		"babel-preset-es2015-rollup": "^3.0.0",
+		"babel-preset-stage-0": "^6.16.0",
+		"babel-preset-react": "^6.11.1",
+		"babel-preset-react-app": "^0.2.1",
+		"css-loader": "^0.28.4",
+		"eslint": "^4.8.0",
+		"html-webpack-plugin": "^2.30.1",
+		"jshint": "^2.9.5",
+		"less": "^2.7.2",
+		"less-loader": "^4.0.5",
+		"open-browser-webpack-plugin": "0.0.5",
+		"optimize-css-assets-webpack-plugin": "^3.0.0",
+		"react-hot-loader": "next",
+		"resolve-url-loader": "^1.6.0",
+		"style-loader": "^0.13.1",
+		"url-loader": "^0.5.7",
+		"webpack": "^2.4.1",
+		"webpack-dev-server": "^2.4.5"
+	}
 }

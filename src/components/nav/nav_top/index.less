@@ -1,0 +1,54 @@
+@import '../../../static/mixins/global.less';
+.ysg-nav{
+    z-index: 999;
+.nav-ul {
+    position: fixed;
+    z-index: 999;
+    .px2rem(height;48px);
+    .px2rem(line-height;48px);
+    &.top{
+ 		right: 0;
+     	top: 0;
+     	width:50%;
+     	text-align: right;
+     	padding-right: 50px;
+     	.nav-li {
+        	display: inline-block;
+        	width: 80px;
+        	text-align: center;
+
+        	a{
+        		color: #333;
+            	.fontsize(14px);
+        	}
+            &.active{
+                a{
+                    color:red;
+                }
+            }
+    	}
+    }
+    &.bottom {
+        left: 0;
+        bottom: 0;
+        background: #666;
+        z-index: 999;
+        width: 100%;
+        .nav-li {
+        	display: inline-block;
+        	padding-right: 20px;
+        	width: 100%/4;
+        	text-align: center;
+        	a{
+            	color: rgba(255, 255, 255, 0.7);
+            	.fontsize(14px);
+        	}
+            &.active{
+                a{
+                    color:red;
+                }
+            }
+    	}
+    }
+}
+}

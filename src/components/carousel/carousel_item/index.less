@@ -1,0 +1,44 @@
+.ysg-carousel {
+    overflow: hidden;
+}
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+}
+
+.ysg-carousel-item{
+    display: block !important;
+    visibility: hidden;
+    height: 0;
+    opacity: 0;
+    transition: 2s;
+    img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+.ysg-carousel-item.active {
+    opacity: 1;
+    left: auto;
+    height: auto;
+    visibility: visible;
+    -webkit-animation: appear 2s ease-in-out;
+    -moz-animation: appear 2s ease-in-out;
+    -o-animation: appear 2s ease-in-out;
+    -ms-animation: appear 2s ease-in-out;
+}
+
+
+@keyframes appear {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 1;
+    }
+}
